@@ -4,6 +4,7 @@ package college.jdbc.program; //initialize package name
  * import required packages
  */
 import java.util.Iterator;
+
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ import java.util.TreeMap;
  */
 public class DataFormatting 
 {
-	//instance varaibles
+	//instance variables
 	private TreeMap<Integer, Employee> employeeData;
 	private TreeMap<Integer, String> deptData;
 	private TreeMap<Integer, Projects> projData;
@@ -93,9 +94,23 @@ public class DataFormatting
 				projManage(employeeOrder.get(item));
 				
 				
-				System.out.printf("%5s%-25s%-18s","","","----");
-				System.out.printf("\n%5s%-25s%-18.1f","","",indiHours);
 				totHours+=indiHours;
+				String dashHelp=Double.toString(Math.abs(totHours));
+				String dash="";
+				int integerPlaces = dashHelp.indexOf('.');
+				int decimalPlaces = dashHelp.length()-integerPlaces;
+				int total = integerPlaces+decimalPlaces;
+				
+			
+			
+				for(int i = 0;i<total;i++)
+				{
+					dash+="-";
+				}
+				
+				System.out.printf("%5s%-25s%-19s","","",dash);
+				System.out.printf("\n%5s%-25s%-18.1f","","",indiHours);
+				
 				System.out.println();
 				
 			}
